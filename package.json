@@ -1,0 +1,19 @@
+{
+  "name": "ci-cd-reactjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manuvaldes9/ci-cd-reactjs.git"
+  },
+  "author": "Manuel Valdes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manuvaldes9/ci-cd-reactjs/issues"
+  },
+  "homepage": "https://github.com/manuvaldes9/ci-cd-reactjs#readme"
+}
