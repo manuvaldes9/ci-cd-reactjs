@@ -17,12 +17,7 @@ script:
   - yarn build
     # build docker images
   - docker build -t manuvaldes9/ci-cd-reactjs .
-deploy:
-  provider: script
-  script:
-    # push to dockerhub
-    docker push manuvaldes9/ci-cd-reactjs;
-  branch: master
+
 addons:
   sonarcloud: true
 script:
@@ -31,3 +26,9 @@ jobs:
   include:
     - stage: unit tests
       script: npm test
+deploy:
+  provider: script
+  script:
+    # push to dockerhub
+    docker push manuvaldes9/ci-cd-reactjs;
+  branch: master
