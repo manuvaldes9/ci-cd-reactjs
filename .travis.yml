@@ -21,7 +21,7 @@ deploy:
   provider: script
   script:
     # push to dockerhub
-    docker push unqpdes/todo-list-front;
+    docker push manuvaldes9/ci-cd-reactjs;
   branch: master
 addons:
   sonarcloud: true
