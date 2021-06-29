@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "start": "node index.js"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/manuvaldes9/ci-cd-reactjs.git"
@@ -21,6 +21,7 @@
     "mocha": "^9.0.1"
   },
   "dependencies": {
-    "chai": "^4.3.4"
+    "chai": "^4.3.4",
+    "express": "^4.17.1"
   }
 }
