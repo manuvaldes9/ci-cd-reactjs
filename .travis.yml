@@ -1,8 +1,10 @@
 language: node_js
 node_js:  
   - "stable"
+
 jdk:
   - oraclejdk8
+
 addons:
   sonarcloud: true
 script:
