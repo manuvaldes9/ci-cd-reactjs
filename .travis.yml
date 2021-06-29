@@ -10,25 +10,14 @@ before_install:
 install:
   # install deps
   - yarn install
-jdk:
-  - oraclejdk8
 script:
   - yarn test
   - yarn build
-    # build docker images
-  - docker build -t manuvaldes9/ci-cd-reactjs .
-
-addons:
-  sonarcloud: true
-script:
-  - sonar-scanner -Dsonar.login=$SONAR_TOKEN -Dsonar.organization=manuvaldes9-github -Dsonar.projectKey=manuvaldes9_ci-cd-reactjs -Dsonar.sources='./app' -X
-jobs:
-  include:
-    - stage: unit tests
-      script: npm test
+  # build docker images
+  - docker build -t unqpdes/todo-list-front .
 deploy:
   provider: script
   script:
     # push to dockerhub
-    docker push manuvaldes9/ci-cd-reactjs;
+    docker push unqpdes/todo-list-front;
   branch: master
