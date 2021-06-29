@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/manuvaldes9/ci-cd-reactjs.git"
@@ -12,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/manuvaldes9/ci-cd-reactjs/issues"
   },
-  "homepage": "https://github.com/manuvaldes9/ci-cd-reactjs#readme"
+  "homepage": "https://github.com/manuvaldes9/ci-cd-reactjs#readme",
+  "devDependencies": {
+    "mocha": "^9.0.1"
+  },
+  "dependencies": {
+    "chai": "^4.3.4"
+  }
 }
