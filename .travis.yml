@@ -1,6 +1,20 @@
+sudo: required
 language: node_js
 node_js:
   - "stable"
+services:
+  - docker
+before_install:
+  # login to docker registries (dockerhub + heroku)
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+install:
+  # install deps
+  - yarn install
+script:
+  - yarn test
+  - yarn build
+    # build docker images
+  - docker build -t manuvaldes9/ci-cd-reactjs .  
 jdk:
   - oraclejdk8
 addons:
@@ -11,3 +25,9 @@ jobs:
   include:
     - stage: unit tests
       script: npm test
+    - stage: deploy
+      provider: script
+        script:
+        # push to dockerhub
+        docker push manuvaldes9/ci-cd-reactjs;
+      branch: master
