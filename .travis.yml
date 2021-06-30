@@ -37,5 +37,6 @@ deploy:
   provider: script
   script:
     # push to dockerhub
-    docker push manuvaldes9/ci-cd-reactjs:esto;
-  branch: master
+    docker push manuvaldes9/ci-cd-reactjs;
+  on:
+    branch: master
