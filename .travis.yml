@@ -8,9 +8,9 @@ services:
 
 before_install:
   # install heroku CLI
- # - wget -qO- https://toolbelt.heroku.com/install.sh | sh
+  - wget -qO- https://toolbelt.heroku.com/install.sh | sh
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  #- echo "$HEROKU_PASSWORD" | docker login -u "$HEROKU_USERNAME" --password-stdin registry.heroku.com
+  - echo "$HEROKU_PASSWORD" | docker login -u "$HEROKU_USERNAME" --password-stdin registry.heroku.com
 
 jdk:
   - oraclejdk8
@@ -24,8 +24,8 @@ script:
 
   - sonar-scanner -Dsonar.login=$SONAR_TOKEN -Dsonar.organization=manuvaldes9 -Dsonar.projectKey=ci-cd-reactjs -Dsonar.sources='./app' -X
   - docker build -t manuvaldes9/ci-cd-reactjs .
-  #docker tag majo69/ci-image 
-    #registry.heroku.com/$HEROKU_APP_NAME/web
+  - docker tag manuvaldes9/ci-cd-reactjs 
+registry.heroku.com/$HEROKU_APP_NAME/web
 
 #notifications:
   #slack: trabajodeis:Giyiq8DAlvuWDB4aV3Lb1s3
