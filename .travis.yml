@@ -2,41 +2,27 @@ sudo: required
 language: node_js
 node_js:
   - "stable"
+
 services:
   - docker
+
 before_install:
-  # login to docker registries (dockerhub + heroku)
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+
 jdk:
   - oraclejdk8
 
 addons:
   sonarcloud: true
 
-install:
-  # install deps
-  - yarn install
-
-
 script:
-  - yarn test
-  - yarn build
-    # build docker images
+  - npm test
+  - sonar-scanner -Dsonar.login=$SONAR_TOKEN -Dsonar.organization=manuvaldes9-github -Dsonar.projectKey=manuvaldes9_ci-cd-reactjs -Dsonar.sources='./app' -X
   - docker build -t manuvaldes9/ci-cd-reactjs .
 
-
-jobs:
-  include:
-    - stage: unit tests
-      script: npm test
-script:
-  - sonar-scanner -Dsonar.login=$SONAR_TOKEN -Dsonar.organization=manuvaldes9-github -Dsonar.projectKey=manuvaldes9_ci-cd-reactjs -Dsonar.sources='./app' -X
-
-
-deploy:
+  deploy:
   provider: script
   script:
-    # push to dockerhub
     docker push manuvaldes9/ci-cd-reactjs;
   on:
     branch: master
