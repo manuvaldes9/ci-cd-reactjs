@@ -17,8 +17,8 @@ addons:
 
 script:
   - npm test
-  - sonar-scanner -Dsonar.login=$SONAR_TOKEN -Dsonar.organization=manuvaldes9-github -Dsonar.projectKey=ci-cd-reactjs -Dsonar.sources='./app' -X
   - docker build -t manuvaldes9/ci-cd-reactjs .
+  - sonar-scanner -Dsonar.login=$SONAR_TOKEN -Dsonar.organization=manuvaldes9-github -Dsonar.projectKey=ci-cd-reactjs -Dsonar.sources='./app' -X
 
 deploy:
   provider: script
