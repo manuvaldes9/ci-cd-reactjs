@@ -18,7 +18,11 @@ install:
   - yarn install
 
 
-
+script:
+  - yarn test
+  - yarn build
+    # build docker images
+  - docker build -t manuvaldes9/ci-cd-reactjs .
 
 
 jobs:
@@ -27,12 +31,8 @@ jobs:
       script: npm test
 script:
   - sonar-scanner -Dsonar.login=$SONAR_TOKEN -Dsonar.organization=manuvaldes9-github -Dsonar.projectKey=manuvaldes9_ci-cd-reactjs -Dsonar.sources='./app' -X
-script:
-  - yarn test
-  - yarn build
-    # build docker images
-  - docker build -t manuvaldes9/ci-cd-reactjs .
-  
+
+
 deploy:
   provider: script
   script:
