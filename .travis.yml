@@ -20,12 +20,9 @@ addon:
 
 script:
   - npm test
- 
-
   - sonar-scanner -Dsonar.login=$SONAR_TOKEN -Dsonar.organization=manuvaldes9 -Dsonar.projectKey=ci-cd-reactjs -Dsonar.sources='./app' -X
   - docker build -t manuvaldes9/ci-cd-reactjs .
-  - docker tag manuvaldes9/ci-cd-reactjs 
-registry.heroku.com/$HEROKU_APP_NAME/web
+  - docker tag manuvaldes9/ci-cd-reactjs registry.heroku.com/$HEROKU_APP_NAME/web
 
 #notifications:
   #slack: trabajodeis:Giyiq8DAlvuWDB4aV3Lb1s3
