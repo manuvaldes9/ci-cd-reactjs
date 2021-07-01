@@ -33,3 +33,6 @@ deploy:
     heroku container:release web --app $HEROKU_APP_NAME;
   on:
     branch: master
+    
+notifications:
+  slack: naksinc:3gS2KmrT2PJDARWHqAmdK3IC 
