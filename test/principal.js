@@ -8,7 +8,7 @@ describe("principal - Test", function() {
   describe("Testing the Operations", function() {
 
     it("Testing the sum operation", function() {
-      expect(principal.add(1,2)).to.equal(1+1);
+      expect(principal.add(1,1)).to.equal(1+1);
     });
 
     it("Testing the minus operation", function() {
